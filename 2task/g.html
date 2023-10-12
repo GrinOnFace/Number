@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Форма заказа кофе</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Форма заказа кофе</h1>
+  <form>
+    <label for="coffee-type">Выберите вид кофе:</label>
+    <select id="coffee-type" name="coffee-type">
+      <option value="americano">Американо</option>
+      <option value="latte">Латте</option>
+      <option value="cappuccino">Капучино</option>
+      <option value="espresso">Эспрессо</option>
+    </select>
+
+    <label for="sugar">Количество сахара:</label>
+    <input type="number" id="sugar" name="sugar" value="0">
+
+    <label for="milk">Добавить молоко:</label>
+    <input type="checkbox" id="milk" name="milk" value="yes">
+
+    <button type="submit">Сделать кофе</button>
+  </form>
+
+  <div id="order-message"></div>
+
+  <h1 style="text-align: center;">Текст</h1>
+  <h3 id="textMain">Текст <span id="textSpan">первоначальный</span></h3>
+  <button id="textChange">Изменить текст</button>
+  <button id="colorChange">Изменить цвет</button>
+
+  <script src="script,.js"></script>
+</body>
+</html>
