@@ -227,7 +227,7 @@ alert( String.fromCodePoint(90) ); // Z
 
 //TODO: Объявление
 
-let arr = new Array();
+let arr = new Array(2);
 let arr = [];
 
 let fruits = ["Яблоко", "Апельсин", "Слива"];
@@ -285,3 +285,127 @@ fruits.push("Апельсин", "Груша");
 fruits.unshift("Ананас", "Лимон");
 // ["Ананас", "Лимон", "Яблоко", "Апельсин", "Груша"]
 alert( fruits );
+
+//TODO: Перебор элементов
+
+let arr = ["Яблоко", "Апельсин", "Груша"];
+for (let i = 0; i < arr.length; i++) {
+  alert( arr[i] );
+}
+
+let fruits = ["Яблоко", "Апельсин", "Слива"];
+// проходит по значениям
+for (let fruit of fruits) {
+  alert( fruit );
+}
+
+let arr = ["Яблоко", "Апельсин", "Груша"];
+
+for (let key in arr) {
+  alert( arr[key] ); // Яблоко, Апельсин, Груша
+}
+
+//TODO: length
+
+let arr = [1, 2, 3, 4, 5];
+arr.length = 2; // укорачиваем до двух элементов
+alert( arr ); // [1, 2]
+arr.length = 5; // возвращаем length как было
+alert( arr[3] ); // undefined: значения не восстановились
+
+// TODO: Многомерные массивы
+
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+alert( matrix[1][1] ); // 5, центральный элемент
+
+//TODO: toString
+
+let arr = [1, 2, 3];
+alert( arr ); // 1,2,3
+alert( String(arr) === '1,2,3' ); // true
+
+//! Не сравнивать массивы
+
+alert( [] == [] ); // false
+alert( [0] == [0] ); // false
+
+alert( 0 == [] ); // true
+alert('0' == [] ); // false
+
+/*Так как же сравнить массивы?
+Это просто: не используйте оператор ==. Вместо этого сравните их по элементам в цикле или используя методы итерации */
+
+//* Методы массивов
+
+//TODO: splice
+
+//Если удалять так 
+
+let arr = ["I", "go", "home"];
+delete arr[1]; // удалить "go"
+alert( arr[1] ); // undefined
+// теперь arr = ["I",  , "home"];
+alert( arr.length ); // 3
+
+//Поэтому
+
+let arr = ["Я", "изучаю", "JavaScript", "прямо", "сейчас"];
+// удалить 3 первых элемента и заменить их другими
+arr.splice(0, 3, "Давай", "танцевать");
+alert( arr ) // теперь ["Давай", "танцевать", "прямо", "сейчас"]
+
+//splice возвращает массив из удалённых элементов:
+
+let arr = ["Я", "изучаю", "JavaScript", "прямо", "сейчас"];
+// удалить 2 первых элемента
+let removed = arr.splice(0, 2);
+alert( removed ); // "Я", "изучаю" <-- массив из удалённых элементов
+
+/*Метод splice также может вставлять элементы без удаления, для этого достаточно установить deleteCount в 0: */
+
+let arr = ["Я", "изучаю", "JavaScript"];
+// с индекса 2
+// удалить 0 элементов
+// вставить "сложный", "язык"
+arr.splice(2, 0, "сложный", "язык");
+alert( arr ); // "Я", "изучаю", "сложный", "язык", "JavaScript"
+
+//TODO: slice
+
+let arr = ["t", "e", "s", "t"];
+alert( arr.slice(1, 3) ); // e,s (копирует с 1 до 3)
+alert( arr.slice(-2) ); // s,t (копирует с -2 до конца)
+
+//TODO: concat
+
+let arr = [1, 2];
+// создать массив из: arr и [3,4]
+alert( arr.concat([3, 4]) ); // 1,2,3,4
+// создать массив из: arr и [3,4] и [5,6]
+alert( arr.concat([3, 4], [5, 6]) ); // 1,2,3,4,5,6
+// создать массив из: arr и [3,4], потом добавить значения 5 и 6
+alert( arr.concat([3, 4], 5, 6) ); // 1,2,3,4,5,6
+
+//! объект не скопировать 
+
+let arr = [1, 2];
+let arrayLike = {
+  0: "что-то",
+  length: 1
+};
+alert( arr.concat(arrayLike) ); // 1,2,[object Object]
+
+//!Надо 
+let arr = [1, 2];
+let arrayLike = {
+  0: "что-то",
+  1: "ещё",
+  [Symbol.isConcatSpreadable]: true,
+  length: 2
+};
+alert( arr.concat(arrayLike) ); // 1,2,что-то,ещё
