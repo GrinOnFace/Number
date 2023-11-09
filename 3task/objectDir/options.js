@@ -9,6 +9,15 @@ alert(user.address.street); // Ошибка!
 
 //TODO: Можно так
 
+let i = 2
+
+if (i > 2){
+  console.log("yep")
+}
+else{
+  console.log("no")
+}
+
 let user = {};
 alert(user.address ? user.address.street : undefined);
 
@@ -27,7 +36,7 @@ alert( user.address && user.address.street && user.address.street.name ); // und
 //в противном случае (когда value равно undefined/null) он возвращает undefined.
 
 let user = {}; // пользователь без адреса
-alert( user?.address?.street ); // undefined (без ошибки)
+alert( user.address?.street ); // undefined (без ошибки)
 
 //TODO: Можно так
 

@@ -64,10 +64,9 @@ function sayHello(name) {
   
   //Как исполняется по строчкам
   
-  const x = 1
+  const u = "HI"
   
   const y = function(){
-    const u = "HI"
     console.log(u)
   }
   
@@ -87,27 +86,12 @@ function sayHello(name) {
   
   let x = 1
   const y = function(){
-    const u = "HI"
-    console.log(u)
+    console.log(x)
   }
   x = 2
   y()
-  x = 3 
   
   //? А сейчас
   
   //! Теперь совсем пиздец
   
-  function makeCounter(count){
-    return function(){
-      return count++
-    }
-  }
-  
-  let counter = makeCounter(0)
-  let counter2 = makeCounter(0)
-  
-  console.log(counter())
-  console.log(counter())
-  console.log(counter2())
-  console.log(counter2())

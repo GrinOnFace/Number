@@ -10,6 +10,7 @@ let backticks = `backticks`;
 // перевод строки добавлен с помощью символа перевода строки
 let str1 = "Hello\nWorld";
 
+let num = 0
 // многострочная строка, созданная с использованием обратных кавычек
 let str2 = `Hello
 World`;
@@ -109,17 +110,6 @@ alert( str.substring(6, 2) ); // "ring"
 // …но не для slice:
 alert( str.slice(2, 6) ); // "ring" (то же самое)
 alert( str.slice(6, 2) ); // "" (пустая строка)
-
-/*str.substr(start [, length])
-Возвращает часть строки от start длины length. */
-
-let str = "stringify";
-// ring, получаем 4 символа, начиная с позиции 2
-alert( str.substr(2, 4) );
-
-let str = "stringify";
-// gi, получаем 2 символа, начиная с позиции 4 с конца строки
-alert( str.substr(-4, 2) );
 
 //TODO: Сравнение строк
 

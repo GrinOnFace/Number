@@ -72,7 +72,7 @@ let isLessOrEqual = a <= b; // false
 
 //* Операторы нулевого слияния и присваивания
 
-let x = null;
+let x = null || undefined;
 let y = "Значение y";
 let result = x ?? y;
 console.log(result); // "Значение y"

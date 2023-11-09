@@ -24,7 +24,7 @@ delete user["likes birds"];
 
 //TODO: Создание константного объекта 
 
-const user = {
+let user = {
   name: "John"
 };
 
@@ -32,7 +32,7 @@ user.name = "Pete"; // (*)
 
 alert(user.name); // Pete
 
-//! user = ... - нельзя (константа)
+//! user = joun - нельзя (константа)
 
 //TODO: Квадратные скобки 
 

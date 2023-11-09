@@ -15,7 +15,7 @@ let isTruthy = Boolean(truthyStr);
 //* Неявное преобразование типов (Type Coercion)
 
 //TODO: Преобразование в число
-let addition = "10" + 5; // "105"
+let addition = +"10" + 5; // "105"
 
 //TODO: Преобразование в строку
 let subtraction = "10" - 5; // 5
